@@ -1,0 +1,19 @@
+{
+  "name": "sauce-demo-playwright",
+  "version": "1.0.0",
+  "description": "Playwright test suite for the SauceDemo login, cart and checkout journey",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:repeat": "playwright test --repeat-each=3",
+    "report": "playwright show-report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.4.1"
+  }
+}
