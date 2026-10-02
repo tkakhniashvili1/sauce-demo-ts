@@ -1,7 +1,7 @@
 import { Page, Locator } from '@playwright/test';
+import { BasePage } from './common/BasePage';
 
-export class InventoryPage {
-  readonly page: Page;
+export class ProductsPage extends BasePage {
   readonly inventoryItems: Locator;
   readonly itemNames: Locator;
   readonly itemPrices: Locator;
@@ -10,7 +10,7 @@ export class InventoryPage {
   readonly sortDropdown: Locator;
 
   constructor(page: Page) {
-    this.page = page;
+    super(page);
     this.inventoryItems = page.getByTestId('inventory-item');
     this.itemNames = page.getByTestId('inventory-item-name');
     this.itemPrices = page.getByTestId('inventory-item-price');

@@ -7,13 +7,16 @@
     "test": "playwright test",
     "test:headed": "playwright test --headed",
     "test:repeat": "playwright test --repeat-each=3",
-    "report": "playwright show-report"
+    "report": "playwright show-report",
+    "test:android": "playwright test --config=android/playwright.config.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.63.0",
-    "@types/node": "^26.4.1"
+    "@types/node": "^26.4.1",
+    "@types/pngjs": "^6.0.5",
+    "pngjs": "^7.0.0"
   }
 }

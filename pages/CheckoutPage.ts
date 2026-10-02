@@ -1,7 +1,7 @@
 import { Page, Locator } from '@playwright/test';
+import { BasePage } from './common/BasePage';
 
-export class CheckoutPage {
-  readonly page: Page;
+export class CheckoutPage extends BasePage {
   readonly firstNameInput: Locator;
   readonly lastNameInput: Locator;
   readonly postalCodeInput: Locator;
@@ -11,7 +11,7 @@ export class CheckoutPage {
   readonly completeHeader: Locator;
 
   constructor(page: Page) {
-    this.page = page;
+    super(page);
     this.firstNameInput = page.getByLabel('First Name');
     this.lastNameInput = page.getByLabel('Last Name');
     this.postalCodeInput = page.getByLabel('Zip/Postal Code');

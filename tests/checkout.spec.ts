@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
-import { InventoryPage } from '../pages/InventoryPage';
+import { ProductsPage } from '../pages/ProductsPage';
 import { CartPage } from '../pages/CartPage';
 import { CheckoutPage } from '../pages/CheckoutPage';
 import { users, checkoutInfo } from '../test-data/users';
@@ -8,13 +8,13 @@ import { users, checkoutInfo } from '../test-data/users';
 test.describe('Checkout', () => {
   test.beforeEach(async ({ page }) => {
     const loginPage = new LoginPage(page);
-    const inventoryPage = new InventoryPage(page);
+    const productsPage = new ProductsPage(page);
     const cartPage = new CartPage(page);
 
     await loginPage.open();
     await loginPage.login(users.standard.username, users.standard.password);
-    await inventoryPage.addProductToCart('Sauce Labs Backpack');
-    await inventoryPage.openCart();
+    await productsPage.addProductToCart('Sauce Labs Backpack');
+    await productsPage.openCart();
     await cartPage.proceedToCheckout();
   });
 
