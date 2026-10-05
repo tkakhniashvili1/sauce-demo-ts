@@ -8,7 +8,7 @@
     "test:headed": "playwright test --headed",
     "test:repeat": "playwright test --repeat-each=3",
     "report": "playwright show-report",
-    "test:android": "playwright test --config=android/playwright.config.ts"
+    "test:android": "playwright test --config=playwright.android.config.ts"
   },
   "keywords": [],
   "author": "",

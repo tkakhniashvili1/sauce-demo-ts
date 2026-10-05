@@ -14,9 +14,6 @@ type WorkerFixtures = {
 export const test = base.extend<Fixtures, WorkerFixtures>({
   device: [
     async ({}, use) => {
-      // Playwright pushes/reinstalls its on-device driver APK on every devices() call, which can
-      // take 30-60s+ on a slow emulator. Once `npx playwright install android` + one full run have
-      // put the driver on the device, set PW_ANDROID_OMIT_DRIVER_INSTALL=1 to skip that reinstall.
       const omitDriverInstall = process.env.PW_ANDROID_OMIT_DRIVER_INSTALL === '1';
       const devices = await _android.devices({ omitDriverInstall });
       if (devices.length === 0) {

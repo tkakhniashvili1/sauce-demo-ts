@@ -1,7 +1,7 @@
 import { Page, Locator } from '@playwright/test';
-import { BasePage } from './common/BasePage';
+import { BasePage } from '../common/BasePage';
 
-export class CheckoutPage extends BasePage {
+export class CheckoutPage extends BasePage<Page> {
   readonly firstNameInput: Locator;
   readonly lastNameInput: Locator;
   readonly postalCodeInput: Locator;

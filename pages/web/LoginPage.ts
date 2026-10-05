@@ -1,7 +1,7 @@
 import { Page, Locator } from '@playwright/test';
-import { BasePage } from './common/BasePage';
+import { BasePage } from '../common/BasePage';
 
-export class LoginPage extends BasePage {
+export class LoginPage extends BasePage<Page> {
   readonly usernameInput: Locator;
   readonly passwordInput: Locator;
   readonly loginButton: Locator;
@@ -16,7 +16,7 @@ export class LoginPage extends BasePage {
   }
 
   async open() {
-    await this.page.goto('/');
+    await this.driver.goto('/');
   }
 
   async login(username: string, password: string) {

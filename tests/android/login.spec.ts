@@ -1,8 +1,8 @@
-import { test, expect } from '../fixtures';
-import { LoginPage } from '../pages/LoginPage';
-import { ProductsPage } from '../pages/ProductsPage';
-import { MenuComponent } from '../components/MenuComponent';
-import { androidUsers, androidCatalog, androidErrors } from '../test-data/catalog';
+import { test, expect } from '../../fixtures/android';
+import { LoginPage } from '../../pages/android/LoginPage';
+import { ProductsPage } from '../../pages/android/ProductsPage';
+import { MenuComponent } from '../../components/android/MenuComponent';
+import { androidUsers, androidCatalog, androidErrors } from '../../test-data/android/catalog';
 
 test.describe('Android Login', () => {
   test('standard user can log in and see the products screen', async ({ device }) => {
