@@ -1,9 +1,9 @@
-import { test, expect } from '../fixtures';
-import { LoginPage } from '../pages/LoginPage';
-import { ProductsPage } from '../pages/ProductsPage';
-import { ProductDetailPage } from '../pages/ProductDetailPage';
-import { CartPage } from '../pages/CartPage';
-import { androidUsers, androidCatalog } from '../test-data/catalog';
+import { test, expect } from '../../fixtures/android';
+import { LoginPage } from '../../pages/android/LoginPage';
+import { ProductsPage } from '../../pages/android/ProductsPage';
+import { ProductDetailPage } from '../../pages/android/ProductDetailPage';
+import { CartPage } from '../../pages/android/CartPage';
+import { androidUsers, androidCatalog } from '../../test-data/android/catalog';
 
 test.describe('Android Product', () => {
   test.beforeEach(async ({ device }) => {
