@@ -1,3 +1,5 @@
-export abstract class BasePage<TDriver> {
-  constructor(protected readonly driver: TDriver) {}
+import { Page } from '@playwright/test';
+
+export abstract class BasePage {
+  constructor(protected readonly page: Page) {}
 }

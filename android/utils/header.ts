@@ -1,5 +1,7 @@
 import type { AndroidDevice } from '@playwright/test';
 
+/** Cart/menu controls shared by every screen that shows the app header. */
+
 export async function openCart(device: AndroidDevice): Promise<void> {
   await device.tap({ desc: 'test-Cart' });
 }

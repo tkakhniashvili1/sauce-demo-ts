@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
-import { LoginPage } from '../../pages/web/LoginPage';
-import { users } from '../../test-data/web/users';
+import { LoginPage } from '../pages/LoginPage';
+import { users } from '../test-data/users';
 
 test.describe('Login', () => {
   test('standard user can log in and see the inventory page', async ({ page }) => {

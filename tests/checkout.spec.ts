@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
-import { LoginPage } from '../../pages/web/LoginPage';
-import { ProductsPage } from '../../pages/web/ProductsPage';
-import { CartPage } from '../../pages/web/CartPage';
-import { CheckoutPage } from '../../pages/web/CheckoutPage';
-import { users, checkoutInfo } from '../../test-data/web/users';
+import { LoginPage } from '../pages/LoginPage';
+import { ProductsPage } from '../pages/ProductsPage';
+import { CartPage } from '../pages/CartPage';
+import { CheckoutPage } from '../pages/CheckoutPage';
+import { users, checkoutInfo } from '../test-data/users';
 
 test.describe('Checkout', () => {
   test.beforeEach(async ({ page }) => {

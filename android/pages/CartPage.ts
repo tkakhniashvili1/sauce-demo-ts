@@ -1,7 +1,6 @@
-import type { AndroidDevice, AndroidElementInfo } from '@playwright/test';
-import { isCartBadgeHidden } from '../../utils/android/header';
-import { BasePage } from '../common/BasePage';
-import { isPresent } from '../../utils/android/elements';
+import type { AndroidElementInfo } from '@playwright/test';
+import { isCartBadgeHidden } from '../utils/header';
+import { BasePage } from './common/BasePage';
 
 const REMOVE_BUTTON_RATIO = { x: 0.577, y: 0.839 };
 
@@ -12,9 +11,9 @@ function ratioPoint(bounds: AndroidElementInfo['bounds'], ratio: { x: number; y:
   };
 }
 
-export class CartPage extends BasePage<AndroidDevice> {
+export class CartPage extends BasePage {
   async isDisplayed(): Promise<boolean> {
-    return isPresent(this.driver, { desc: 'test-CONTINUE SHOPPING' });
+    return this.isPresent({ desc: 'test-CONTINUE SHOPPING' });
   }
 
   async isProductDisplayed(productName: string): Promise<boolean> {
@@ -28,24 +27,24 @@ export class CartPage extends BasePage<AndroidDevice> {
   async removeProduct(productName: string): Promise<void> {
     const item = await this.findItem(productName);
     if (!item) throw new Error(`"${productName}" is not in the cart`);
-    await this.driver.input.tap(ratioPoint(item.bounds, REMOVE_BUTTON_RATIO));
+    await this.device.input.tap(ratioPoint(item.bounds, REMOVE_BUTTON_RATIO));
   }
 
   async isCartBadgeHidden(): Promise<boolean> {
-    return isCartBadgeHidden(this.driver);
+    return isCartBadgeHidden(this.device);
   }
 
   async proceedToCheckout(): Promise<void> {
-    await this.driver.tap({ desc: 'test-CHECKOUT' });
+    await this.device.tap({ desc: 'test-CHECKOUT' });
   }
 
   async continueShopping(): Promise<void> {
-    await this.driver.tap({ desc: 'test-CONTINUE SHOPPING' });
+    await this.device.tap({ desc: 'test-CONTINUE SHOPPING' });
   }
 
   private async findItem(descendantText: string): Promise<AndroidElementInfo | undefined> {
     try {
-      return await this.driver.info({ desc: 'test-Item', hasDescendant: { selector: { text: descendantText } } });
+      return await this.device.info({ desc: 'test-Item', hasDescendant: { selector: { text: descendantText } } });
     } catch {
       return undefined;
     }
